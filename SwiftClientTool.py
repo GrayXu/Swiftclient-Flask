@@ -48,6 +48,9 @@ class ConnUtil:
 
     @staticmethod
     def getTempUrl(filename):
-        ConnUtil.con.post_account(headers={"X-Account-Meta-Temp-Url-Key": "mykey"})
-        return ConnUtil.end_point+generate_temp_url("/v1/AUTH_test/user_uploads/"+filename,seconds=3600,key='mykey',method='GET')
+        f = open("mykey.txt")
+        mykey = f.read()
+        ConnUtil.con.post_account(headers={"X-Account-Meta-Temp-Url-Key": mykey})
+        return ConnUtil.end_point+generate_temp_url("/v1/AUTH_test/user_uploads/"+filename,seconds=3600,key=mykey,method='GET')
+        f.close()
         

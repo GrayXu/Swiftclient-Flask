@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <script src="static/jquery.min.js"></script>
+    <script src="static/popper.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
+    <title>Login to Swift</title>
+
+</head>
+<body class="text-light text-dark">
+
+<div class="jumbotron">
+    <h2> Input Openstack Swift info to login.</h2>
+</div>
+<div class="container" bgcolor="#ffffee">
+    <form class="bs-example bs-example-form" role="form" action="/data" method="post">
+        <div class="input-group mb-3">
+            user ：
+            <input type="text" class="form-control" id="user" name="user" value="test:tester">
+        </div>
+
+        <div class="input-group mb-3">
+            password(key) ：
+            <input type="text" class="form-control" id="password" name="password" value="testing">
+        </div>
+
+        <div class="input-group mb-3">
+            endpoint(full) ：
+            <input type="text" class="form-control" id="endpoint" name="endpoint" value="http://ali.grayxu.cn:12345/auth/v1.0">
+        </div>
+
+        <div class="input-group-append">
+            <button class="btn btn-success" type="submit">Go</button>
+        </div>
+    </form>
+
+    <HR style="border:1 dashed #d2cdc8" width="100%" color=#987cb9 SIZE=1>
+
+    <p>
+        Powered By Gray.
+    </p>
+</div>
+
+</body>
+</html>

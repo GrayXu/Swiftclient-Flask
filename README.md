@@ -7,7 +7,7 @@ An Openstack Swift's client built on flask.
 ## Funcion
 
 - CURD
-- Get temporary downlaod URL by your key (*edit "mykey.txt"*).
+- Get temporary downlaod URL by your key.
 
 ## how to use
 

@@ -9,12 +9,13 @@ class ConnUtil:
 
     @staticmethod
     def init_param(user, key, endpoint):
-        ConnUtil.con = conn = swiftclient.Connection(
+        ConnUtil.con = swiftclient.Connection(
             user=user,
             key=key,
             authurl=endpoint,
         )
-        ConnUtil.end_point = endpoint
+        if ConnUtil.bucket_name not in [i['name'] for i in ConnUtil.con.get_account()[1]]:
+            ConnUtil.con.put_container(ConnUtil.bucket_name)
 
     @staticmethod
     def init(c):
@@ -48,9 +49,9 @@ class ConnUtil:
 
     @staticmethod
     def getTempUrl(filename):
-        f = open("mykey.txt")
-        mykey = f.read()
-        ConnUtil.con.post_account(headers={"X-Account-Meta-Temp-Url-Key": mykey})
+        # f = open("mykey.txt")
+        # mykey = f.read()
+        ConnUtil.con.post_account(headers={"X-Account-Meta-Temp-Url-Key": "mykey"}) # temp account
         return ConnUtil.end_point+generate_temp_url("/v1/AUTH_test/user_uploads/"+filename,seconds=3600,key=mykey,method='GET')
         f.close()
         

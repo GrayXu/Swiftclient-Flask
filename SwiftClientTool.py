@@ -14,6 +14,7 @@ class ConnUtil:
             key=key,
             authurl=endpoint,
         )
+        ConnUtil.end_point = endpoint
         if ConnUtil.bucket_name not in [i['name'] for i in ConnUtil.con.get_account()[1]]:
             ConnUtil.con.put_container(ConnUtil.bucket_name)
 
